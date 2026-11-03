@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="How Jaden Rones builds AI workflows, ships internal tools, and teaches teams to use AI." name="description"/><title>How I Work With AI · Jaden Rones</title><link href="style.css" rel="stylesheet"/><link href="ai.css" rel="stylesheet"/><script>document.documentElement.classList.add('js')</script></head>
+<body class="ai"><div class="wrap"><nav class="nav" aria-label="Primary"><a class="logo" href="index.html">Jaden Rones</a><div class="links"><a href="work.html">Work</a><a href="about.html">About</a><a href="toolkit.html">Toolkit</a><a href="index.html#contact">Contact</a></div></nav>
+<main>
+
+<header class="av-hero">
+  <h1 data-rv>How I work with AI</h1>
+  <p data-rv>I learn new AI tools, build workflows my team can reuse, and help the people around me use them with confidence.</p>
+</header>
+
+<section class="av-ch" aria-labelledby="ch1">
+  <div class="av-copy" data-rv>
+    <span class="av-num">01 · <span class="ai-s ai-s-built">Built</span></span>
+    <h2 id="ch1">An agent people actually used</h2>
+    <p>My team spent a lot of time searching for process information. I built two knowledge agents so colleagues could just ask. One reached about 50 active internal users.</p>
+    <ul class="av-keys"><li>Knowledge agents</li><li>Source-backed answers</li><li>Says when it doesn’t know</li></ul>
+  </div>
+  <div class="av-art" data-rv>
+    <article class="spec" data-stepper data-count="4">
+      <div class="chat" aria-live="polite">
+        <p class="chat-empty" data-show="0">Pick a question to see how it answers.</p>
+        <div data-show="1"><p class="q">Where are the steps for a document update request?</p><div class="a"><p>They’re in the process guide, section 3. Confirm which form applies, collect signatures, then submit through the request queue.</p><span class="src">Source · Process guide, section 3</span></div></div>
+        <div data-show="2"><p class="q">Who approves an exception?</p><div class="a"><p>Exceptions go to the operations lead. This page was updated recently, so confirm with your manager.</p><span class="src">Source · Policy page, recently updated</span></div></div>
+        <div data-show="3"><p class="q">When is next quarter’s project due?</p><div class="a"><p>I couldn’t find that in the sources I can use. Your team lead would know.</p><span class="src">No source found</span></div></div>
+      </div>
+      <div class="qs" role="group" aria-label="Sample questions"><button type="button" data-go="1">Steps for a request</button><button type="button" data-go="2">Who approves</button><button type="button" data-go="3">Something it doesn’t know</button></div>
+    </article>
+    <p class="av-fine">Fictional reconstruction. No internal data or screens.</p>
+  </div>
+</section>
+
+<section class="av-ch av-ch-wide" aria-labelledby="ch2">
+  <div class="av-copy av-copy-c" data-rv>
+    <span class="av-num">02 · <span class="ai-s ai-s-built">Built</span></span>
+    <h2 id="ch2">From a Jira ticket to a reviewed draft</h2>
+    <p>I built reusable Cursor skills, including a PRD writer, on top of our existing Jira integration. Click through one feature.</p>
+  </div>
+  <div class="jd av-jd" data-stepper data-rv>
+    <div class="jd-rail">
+      <ol class="nodes">
+        <li><button type="button" data-go="0"><span class="dot" aria-hidden="true"></span>Jira feature</button></li>
+        <li><button type="button" data-go="1"><span class="dot" aria-hidden="true"></span>Context in Cursor</button></li>
+        <li><button type="button" data-go="2"><span class="dot" aria-hidden="true"></span>PRD writer skill</button></li>
+        <li><button type="button" data-go="3"><span class="dot" aria-hidden="true"></span>PRD &amp; user stories</button></li>
+        <li><button type="button" data-go="4"><span class="dot" aria-hidden="true"></span>Human review</button></li>
+      </ol>
+      <div class="jd-copy av-jd-copy" aria-live="polite">
+        <p data-show="0">Start from what the team already agreed on.</p>
+        <p data-show="1">Read the ticket, linked stories, and docs together.</p>
+        <p data-show="2">Saved instructions, so every draft has the same structure.</p>
+        <p data-show="3">Something concrete for engineers to react to.</p>
+        <p data-show="4">I check scope, edge cases, and anything sensitive. Try it.</p>
+      </div>
+      <div class="ctrl"><button type="button" class="btn-t" data-prev>← Back</button><span class="ctrl-p" data-progress></span><button type="button" class="btn-t" data-next>Next →</button></div>
+    </div>
+    <div class="jd-stage">
+      <article class="sheet" data-show="0">
+        <div class="sheet-meta"><span>FEAT-104</span><span>Story · To do</span></div>
+        <h3>Saved filters on the activity page</h3>
+        <dl class="kv"><div><dt>Priority</dt><dd>Medium</dd></div><div><dt>Team</dt><dd>Product</dd></div></dl>
+        <p>Users rebuild the same filter set every visit. Let them save a set and reuse it.</p>
+        <ul class="plain"><li>FEAT-098 · Filter panel v2</li><li>FEAT-101 · Activity page performance</li></ul>
+      </article>
+      <article class="sheet" data-show="1">
+        <div class="sheet-meta"><span>Cursor</span><span>Context loaded</span></div>
+        <ul class="ticks ai-reveal"><li>Ticket and comments</li><li>Two linked stories</li><li>Design note: filter panel v2</li><li>Team PRD template</li></ul>
+      </article>
+      <article class="sheet sheet-code" data-show="2">
+        <div class="sheet-meta"><span>skills / prd-writer</span><span>Reusable</span></div>
+<pre>sections  Problem · Users · Scope ·
+          Requirements · Open questions
+rules     Use only the context provided
+          Flag anything uncertain
+          Keep requirements testable</pre>
+      </article>
+      <article class="sheet" data-show="3">
+        <div class="sheet-meta"><span>Draft PRD</span><span>Needs review</span></div>
+        <div class="ai-reveal">
+          <div><h4>Problem</h4><p>Users rebuild the same filters each visit.</p></div>
+          <div><h4>User story</h4><p>As a user, I want to save a filter set so I can return to the same view quickly.</p></div>
+          <div><h4>Open question</h4><p>Is there a limit on saved filters per user?</p></div>
+        </div>
+      </article>
+      <article class="sheet" data-show="4" data-checklist data-done-text="Approved after edits">
+        <div class="sheet-meta"><span>Review</span><span class="chk-status" data-check-status></span></div>
+        <fieldset class="checks"><legend class="sr">Review checklist</legend>
+          <label><input type="checkbox"/> Scope matches the ticket</label>
+          <label><input type="checkbox"/> Edge cases confirmed with design</label>
+          <label><input type="checkbox"/> Nothing internal or sensitive</label>
+        </fieldset>
+      </article>
+      <p class="av-fine">Fictional feature. Illustrative reconstruction.</p>
+    </div>
+  </div>
+</section>
+
+<section class="av-ch" aria-labelledby="ch3">
+  <div class="av-copy" data-rv>
+    <span class="av-num">03 · <span class="ai-s ai-s-used">Taught</span></span>
+    <h2 id="ch3">Then I taught my team</h2>
+    <p>A lot of this was new to people. I ran hands-on sessions for about 10 colleagues across two teams, starting from the work they already did.</p>
+  </div>
+  <ul class="av-topics" data-rv>
+    <li><b>Jira + Cursor</b><span>Draft from real tickets</span></li>
+    <li><b>Figma MCP</b><span>Bring designs into the workflow</span></li>
+    <li><b>MCP integrations</b><span>Connect AI to other tools</span></li>
+    <li><b>Context</b><span>What to give a model, and when to summarize</span></li>
+    <li><b>Model selection</b><span>Right model for the task</span></li>
+    <li><b>Prompting</b><span>Clear goals, constraints, format</span></li>
+    <li><b>Reusable skills</b><span>No more blank prompts</span></li>
+    <li><b>Review</b><span>Check everything before using it</span></li>
+  </ul>
+</section>
+
+<figure class="av-quote" data-rv>
+  <blockquote>“You took every challenge and opportunity given and handled all with so much grace and professionalism.”</blockquote>
+  <figcaption>Ana Reyes · LPL Financial</figcaption>
+</figure>
+
+<section class="av-ch av-ch-wide" aria-labelledby="ch4">
+  <div class="av-copy av-copy-c" data-rv>
+    <span class="av-num">04 · Outside work</span>
+    <h2 id="ch4">My own systems</h2>
+    <p>How I use AI to learn, plan, and stay organized. Pick one to try it.</p>
+  </div>
+  <div class="ai-explorer av-sys" data-tabs data-rv>
+    <div class="ai-tabs" role="tablist" aria-label="Personal and Women in Technology workflows">
+      <button role="tab" id="t1" aria-controls="tp1" aria-selected="true">Learning briefings</button>
+      <button role="tab" id="t2" aria-controls="tp2" aria-selected="false" tabindex="-1">Daily planning</button>
+      <button role="tab" id="t3" aria-controls="tp3" aria-selected="false" tabindex="-1">Networking</button>
+      <button role="tab" id="t4" aria-controls="tp4" aria-selected="false" tabindex="-1">Women in Technology</button>
+    </div>
+
+    <div class="sys" role="tabpanel" id="tp1" aria-labelledby="t1">
+      <div class="sys-l">
+        <div class="ai-case-top"><h3>Recurring AI briefings</h3><span class="ai-s ai-s-used">Used</span></div>
+        <dl class="facts">
+          <div><dt>Problem</dt><dd>AI tools change quickly, and I want to keep up beyond class.</dd></div>
+          <div><dt>AI helps with</dt><dd>Gathering developments and why they might matter</dd></div>
+          <div><dt>I decide</dt><dd>What’s worth learning, and what I actually try</dd></div>
+        </dl>
+      </div>
+      <div class="sheet brief" data-stepper>
+        <div class="sheet-meta"><span>Weekly briefing · sample, not real news</span><span data-progress></span></div>
+        <button type="button" class="brief-h" data-go="0">What changed</button>
+        <p data-show="0">A coding assistant adds support for reusable project instructions.</p>
+        <button type="button" class="brief-h" data-go="1">Why it matters</button>
+        <p data-show="1">Product teams could keep documentation standards in one place instead of in each prompt.</p>
+        <button type="button" class="brief-h" data-go="2">What I’d try</button>
+        <p data-show="2">Rebuild my PRD skill in the new format and compare the drafts side by side.</p>
+      </div>
+    </div>
+
+    <div class="sys" role="tabpanel" id="tp2" aria-labelledby="t2" hidden>
+      <div class="sys-l">
+        <div class="ai-case-top"><h3>Planning across commitments</h3><span class="ai-s ai-s-used">Used</span></div>
+        <dl class="facts">
+          <div><dt>Problem</dt><dd>Classes, Women in Technology, projects, applications, and personal goals share one week.</dd></div>
+          <div><dt>AI helps with</dt><dd>Grouping tasks, suggesting an order, flagging conflicts</dd></div>
+          <div><dt>I decide</dt><dd>What matters most, and how I spend my time</dd></div>
+        </dl>
+      </div>
+      <div class="sheet plan" id="plan" data-stepper>
+        <div class="sheet-meta"><span>Sample day</span><span><span data-show="0">Unsorted</span><span data-show="1">Proposed plan · I adjust it</span></span></div>
+        <ul class="pl-pool" data-show="0">
+          <li class="pl-task" data-flip-item data-i="0" data-slot="am" data-order="1"><span>Finish problem set</span><small>Class · due 5pm</small></li>
+          <li class="pl-task" data-flip-item data-i="1" data-slot="eve" data-order="5" data-flag><span>Club meeting</span><small>WiT · 6pm</small></li>
+          <li class="pl-task" data-flip-item data-i="2" data-slot="pm" data-order="3"><span>Send one job application</span><small>Career</small></li>
+          <li class="pl-task" data-flip-item data-i="3" data-slot="am" data-order="0"><span>Run</span><small>Personal · before class</small></li>
+          <li class="pl-task" data-flip-item data-i="4" data-slot="pm" data-order="4"><span>Reply to mentor</span><small>Networking</small></li>
+          <li class="pl-task" data-flip-item data-i="5" data-slot="am" data-order="2"><span>Confirm Thursday speaker</span><small>WiT · time-sensitive</small></li>
+          <li class="pl-task" data-flip-item data-i="6" data-slot="eve" data-order="6" data-flag><span>Office hours</span><small>Class · 6pm</small></li>
+        </ul>
+        <div class="pl-slots" data-show="1">
+          <div><h4>Morning</h4><ul data-slot-list="am"></ul></div>
+          <div><h4>Afternoon</h4><ul data-slot-list="pm"></ul></div>
+          <div><h4>Evening</h4><ul data-slot-list="eve"></ul></div>
+        </div>
+        <p class="pl-flag" data-show="1">Club meeting and office hours are both at 6pm. Move one.</p>
+        <div class="ctrl"><button type="button" class="btn-t" data-go="0" data-show="1">← Unsorted</button><button type="button" class="btn-t" data-go="1" data-show="0">Organize the day →</button></div>
+      </div>
+    </div>
+
+    <div class="sys" role="tabpanel" id="tp3" aria-labelledby="t3" hidden>
+      <div class="sys-l">
+        <div class="ai-case-top"><h3>Networking research</h3><span class="ai-s ai-s-used">Used</span></div>
+        <dl class="facts">
+          <div><dt>Problem</dt><dd>Good outreach takes research, and it’s easy to lose track of conversations.</dd></div>
+          <div><dt>AI helps with</dt><dd>Research, preparation, and keeping context</dd></div>
+          <div><dt>I decide</dt><dd>Who to contact and exactly what I send. Nothing goes out automatically.</dd></div>
+        </dl>
+      </div>
+      <div class="net" data-stepper>
+        <ol class="pipe">
+          <li><button type="button" data-go="0"><span class="dot" aria-hidden="true"></span>Identify</button></li>
+          <li><button type="button" data-go="1"><span class="dot" aria-hidden="true"></span>Research</button></li>
+          <li><button type="button" data-go="2"><span class="dot" aria-hidden="true"></span>Common ground</button></li>
+          <li><button type="button" data-go="3"><span class="dot" aria-hidden="true"></span>Draft note</button></li>
+          <li><button type="button" data-go="4"><span class="dot" aria-hidden="true"></span>Follow up</button></li>
+        </ol>
+        <div class="sheet" aria-live="polite">
+          <div class="sheet-meta"><span>Contact record · fictional</span><span data-progress></span></div>
+          <div class="rec"><span class="rec-av" aria-hidden="true">AM</span><div><strong>Alex M.</strong><small>Product manager, developer-tools company</small></div></div>
+          <dl class="kv kv-stack">
+            <div data-show="1 2 3 4" class="in"><dt>Background</dt><dd>Started in product marketing. Writes about onboarding.</dd></div>
+            <div data-show="2 3 4" class="in"><dt>Common ground</dt><dd>We both moved from marketing into product.</dd></div>
+            <div data-show="3 4" class="in"><dt>Draft</dt><dd class="note">“Hi Alex, I read your post on onboarding. I’m also moving from marketing into product and would love to hear how you made the switch.”</dd></div>
+            <div data-show="4" class="in"><dt>Status</dt><dd>Sent by me · follow up in two weeks</dd></div>
+          </dl>
+          <p class="who" data-show="0 1 2">AI helps me research. I choose who to reach out to.</p>
+          <p class="who" data-show="3 4">I rewrite the draft in my own words before sending.</p>
+        </div>
+        <div class="ctrl"><button type="button" class="btn-t" data-prev>← Back</button><button type="button" class="btn-t" data-next>Next →</button></div>
+      </div>
+    </div>
+
+    <div class="sys" role="tabpanel" id="tp4" aria-labelledby="t4" hidden>
+      <div class="sys-l">
+        <div class="ai-case-top"><h3>AI-assisted club operations</h3><span class="ai-s ai-s-exp">Exploring</span></div>
+        <dl class="facts">
+          <div><dt>Problem</dt><dd>Running <a href="women-in-tech.html">Women in Technology</a> means coordinating speakers, events, and partners, and messages get buried.</dd></div>
+          <div><dt>AI helps with</dt><dd>Sorting updates, drafting replies, keeping context</dd></div>
+          <div><dt>I decide</dt><dd>What’s a priority, and every message before it’s sent</dd></div>
+        </dl>
+      </div>
+      <div class="wit" data-stepper>
+        <ol class="pipe">
+          <li><button type="button" data-go="0"><span class="dot" aria-hidden="true"></span>Messages</button></li>
+          <li><button type="button" data-go="1"><span class="dot" aria-hidden="true"></span>Triage</button></li>
+          <li><button type="button" data-go="2"><span class="dot" aria-hidden="true"></span>Drafts &amp; tasks</button></li>
+          <li><button type="button" data-go="3"><span class="dot" aria-hidden="true"></span>Outreach</button></li>
+          <li><button type="button" data-go="4"><span class="dot" aria-hidden="true"></span>Review</button></li>
+        </ol>
+        <div class="sheet" aria-live="polite">
+          <div class="sheet-meta"><span>Concept in development · fictional messages</span><span data-progress></span></div>
+          <ul class="msgs" data-show="0 1">
+            <li class="msg" data-flip-item style="--p:3"><span class="msg-av" aria-hidden="true">S</span><div><small>#general · Sam</small><p>Great turnout last night, thanks everyone.</p></div><em class="pri pri-low" data-show="1">FYI</em></li>
+            <li class="msg" data-flip-item style="--p:0"><span class="msg-av" aria-hidden="true">M</span><div><small>#speakers · Maya</small><p>Speaker for Thursday needs room details by tomorrow.</p></div><em class="pri pri-hi" data-show="1">Deadline</em></li>
+            <li class="msg" data-flip-item style="--p:2"><span class="msg-av" aria-hidden="true">D</span><div><small>#events · Dana</small><p>Should we move the workshop to the larger room?</p></div><em class="pri" data-show="1">Decision</em></li>
+            <li class="msg" data-flip-item style="--p:1"><span class="msg-av" aria-hidden="true">P</span><div><small>#partners · Priya</small><p>Partner company replied, wants a call next week.</p></div><em class="pri pri-hi" data-show="1">Action</em></li>
+          </ul>
+          <div class="wit-draft" data-show="2">
+            <h4>Draft reply to Maya</h4>
+            <p class="note">“Thanks for the heads up. I’ll send the room and parking details to the speaker today.”</p>
+            <h4>Action items</h4>
+            <ul class="ticks"><li>Send room details · today</li><li>Schedule partner call · this week</li><li>Decide on workshop room · board vote</li></ul>
+          </div>
+          <table class="trk" data-show="3">
+            <caption class="sr">Outreach tracker</caption>
+            <thead><tr><th scope="col">Contact</th><th scope="col">Status</th><th scope="col">Next</th></tr></thead>
+            <tbody><tr><td>Speaker A</td><td>Confirmed</td><td>Send logistics</td></tr><tr><td>Partner B</td><td>Awaiting reply</td><td>Follow up Friday</td></tr><tr><td>Speaker C</td><td>Researching</td><td>Draft intro</td></tr></tbody>
+          </table>
+          <div data-show="4" data-checklist data-done-text="Ready for me to send">
+            <fieldset class="checks"><legend class="sr">Review checklist</legend>
+              <label><input type="checkbox"/> Priorities look right</label>
+              <label><input type="checkbox"/> Reply sounds like me</label>
+              <label><input type="checkbox"/> No private details shared</label>
+            </fieldset>
+            <p class="chk-status" data-check-status></p>
+          </div>
+        </div>
+        <div class="ctrl"><button type="button" class="btn-t" data-prev>← Back</button><button type="button" class="btn-t" data-next>Next →</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="av-ch av-ch-wide" aria-labelledby="ch5">
+  <div class="av-copy av-copy-c" data-rv>
+    <span class="av-num">05</span>
+    <h2 id="ch5">How I approach a new workflow</h2>
+  </div>
+  <ol class="av-steps" data-rv>
+    <li><b>Problem</b><span>Know the goal first</span></li>
+    <li><b>Context</b><span>Give it what it needs</span></li>
+    <li><b>Tools</b><span>Pick what fits</span></li>
+    <li><b>Steps</b><span>Break it down</span></li>
+    <li><b>Review</b><span>Check the output</span></li>
+    <li><b>Iterate</b><span>Improve the workflow</span></li>
+  </ol>
+</section>
+
+<section class="av-end" aria-label="Tools and what’s next" data-rv>
+  <div><span class="av-num">Tools</span><p>Cursor · Claude · Claude Code · ChatGPT · Microsoft Copilot · GitHub Copilot · MCP · Jira · Figma</p></div>
+  <div><span class="av-num">Learning next</span><p>Advanced Claude Code, AI orchestration, and building my own agents.</p></div>
+  <a class="ai-link" href="toolkit.html">See my full toolkit →</a>
+</section>
+
+</main>
+<footer class="foot"><span>© 2026 Jaden Rones · <a href="mailto:jrones@ucsd.edu">jrones@ucsd.edu</a> · <a href="https://github.com/jadenrones2-blip" rel="noopener noreferrer" target="_blank">GitHub ↗</a></span><span class="foot-links"><a href="work.html">Work</a><a href="about.html">About</a><a href="toolkit.html">Toolkit</a><a href="ai.html">AI</a></span></footer>
+</div>
+<script src="ai.js"></script>
+<script src="motion.js"></script></body></html>
